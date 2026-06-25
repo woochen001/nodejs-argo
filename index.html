@@ -1,238 +1,179 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WallpaperVerse</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Navigation • Explore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .title-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+        }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#0f172a;
-    color:#fff;
-}
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 50px;
-    background:#111827;
-    border-bottom:1px solid rgba(255,255,255,.1);
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-size:24px;
-    font-weight:bold;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#38bdf8;
-}
-
-.hero{
-    text-align:center;
-    padding:80px 20px;
-    background:linear-gradient(135deg,#0ea5e9,#7c3aed);
-}
-
-.hero h1{
-    font-size:54px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:18px;
-    opacity:.9;
-}
-
-.categories{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:40px;
-}
-
-.card{
-    background:#1e293b;
-    border-radius:16px;
-    padding:30px;
-    text-align:center;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card svg{
-    width:70px;
-    height:70px;
-    margin-bottom:15px;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-    padding:40px;
-}
-
-.wallpaper{
-    height:220px;
-    border-radius:15px;
-    overflow:hidden;
-    position:relative;
-}
-
-.wallpaper:nth-child(1){
-    background:linear-gradient(135deg,#22c55e,#15803d);
-}
-
-.wallpaper:nth-child(2){
-    background:linear-gradient(135deg,#2563eb,#60a5fa);
-}
-
-.wallpaper:nth-child(3){
-    background:linear-gradient(135deg,#f97316,#ea580c);
-}
-
-.wallpaper:nth-child(4){
-    background:linear-gradient(135deg,#9333ea,#ec4899);
-}
-
-.wallpaper span{
-    position:absolute;
-    bottom:15px;
-    left:15px;
-    font-size:20px;
-    font-weight:bold;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    background:#111827;
-    margin-top:30px;
-}
-</style>
+        .icon-bg {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover .icon-bg {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
+<body class="bg-zinc-950 text-white min-h-screen">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h1 class="title-font text-5xl font-semibold tracking-tighter mb-3">
+                Card Navigation
+            </h1>
+            <p class="text-zinc-400 text-xl max-w-md mx-auto">
+                Clean, modern card-style navigation example
+            </p>
+        </div>
 
-<body>
+        <!-- Navigation Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Card 1 -->
+            <a href="#" onclick="alert('Navigating to Dashboard... (demo)')" 
+               class="card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-700">
+                <div class="h-2 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+                <div class="p-8">
+                    <div class="icon-bg w-14 h-14 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fa-solid fa-gauge"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 title-font">Dashboard</h3>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        Overview of your metrics, analytics, and key performance indicators.
+                    </p>
+                    <div class="inline-flex items-center gap-2 text-blue-400 font-medium group-hover:gap-3 transition-all">
+                        Go to Dashboard
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </div>
+            </a>
 
-<header>
-    <div class="logo">
+            <!-- Card 2 -->
+            <a href="#" onclick="alert('Navigating to Projects... (demo)')" 
+               class="card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-700">
+                <div class="h-2 bg-gradient-to-r from-purple-500 to-violet-500"></div>
+                <div class="p-8">
+                    <div class="icon-bg w-14 h-14 bg-purple-500/10 text-purple-400 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fa-solid fa-folder-tree"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 title-font">Projects</h3>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        Browse, manage, and track all your active and completed projects.
+                    </p>
+                    <div class="inline-flex items-center gap-2 text-purple-400 font-medium group-hover:gap-3 transition-all">
+                        View Projects
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </div>
+            </a>
 
-        <!-- SVG Logo -->
-        <svg width="40" height="40" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="#38bdf8"/>
-            <path d="M20 65 L40 35 L55 55 L70 30 L85 65 Z"
-                  fill="white"/>
-        </svg>
+            <!-- Card 3 -->
+            <a href="#" onclick="alert('Navigating to Team... (demo)')" 
+               class="card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-700">
+                <div class="h-2 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+                <div class="p-8">
+                    <div class="icon-bg w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 title-font">Team</h3>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        Manage your team members, roles, and collaboration tools.
+                    </p>
+                    <div class="inline-flex items-center gap-2 text-emerald-400 font-medium group-hover:gap-3 transition-all">
+                        Explore Team
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </div>
+            </a>
 
-        WallpaperVerse
+            <!-- Card 4 -->
+            <a href="#" onclick="alert('Navigating to Analytics... (demo)')" 
+               class="card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-700">
+                <div class="h-2 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+                <div class="p-8">
+                    <div class="icon-bg w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 title-font">Analytics</h3>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        Deep insights, reports, and data visualization for your business.
+                    </p>
+                    <div class="inline-flex items-center gap-2 text-amber-400 font-medium group-hover:gap-3 transition-all">
+                        View Reports
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 5 -->
+            <a href="#" onclick="alert('Navigating to Settings... (demo)')" 
+               class="card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-700">
+                <div class="h-2 bg-gradient-to-r from-rose-500 to-pink-500"></div>
+                <div class="p-8">
+                    <div class="icon-bg w-14 h-14 bg-rose-500/10 text-rose-400 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fa-solid fa-cog"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 title-font">Settings</h3>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        Customize your experience, preferences, and account settings.
+                    </p>
+                    <div class="inline-flex items-center gap-2 text-rose-400 font-medium group-hover:gap-3 transition-all">
+                        Open Settings
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 6 -->
+            <a href="#" onclick="alert('Navigating to Documentation... (demo)')" 
+               class="card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden hover:border-zinc-700">
+                <div class="h-2 bg-gradient-to-r from-sky-500 to-indigo-500"></div>
+                <div class="p-8">
+                    <div class="icon-bg w-14 h-14 bg-sky-500/10 text-sky-400 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 title-font">Documentation</h3>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        Guides, API references, and helpful resources for developers.
+                    </p>
+                    <div class="inline-flex items-center gap-2 text-sky-400 font-medium group-hover:gap-3 transition-all">
+                        Read Docs
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-20 text-center text-zinc-500 text-sm">
+            Hover over the cards for smooth hover animations • Built as a single HTML demo
+        </div>
     </div>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Categories</a>
-        <a href="#">Popular</a>
-        <a href="#">About</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h1>Premium Wallpapers</h1>
-    <p>Discover stunning backgrounds for desktop and mobile devices.</p>
-</section>
-
-<section class="categories">
-
-    <div class="card">
-        <!-- Mountain Icon -->
-        <svg viewBox="0 0 100 100">
-            <polygon points="10,80 40,30 70,80"
-                     fill="#22c55e"/>
-            <polygon points="35,80 65,20 95,80"
-                     fill="#16a34a"/>
-        </svg>
-        <h3>Nature</h3>
-    </div>
-
-    <div class="card">
-        <!-- City Icon -->
-        <svg viewBox="0 0 100 100">
-            <rect x="15" y="35" width="20" height="45" fill="#60a5fa"/>
-            <rect x="40" y="20" width="20" height="60" fill="#3b82f6"/>
-            <rect x="65" y="10" width="20" height="70" fill="#2563eb"/>
-        </svg>
-        <h3>City</h3>
-    </div>
-
-    <div class="card">
-        <!-- Space Icon -->
-        <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="22" fill="#a855f7"/>
-            <ellipse cx="50" cy="50" rx="40" ry="12"
-                     fill="none"
-                     stroke="#e879f9"
-                     stroke-width="6"/>
-        </svg>
-        <h3>Space</h3>
-    </div>
-
-    <div class="card">
-        <!-- Abstract Icon -->
-        <svg viewBox="0 0 100 100">
-            <circle cx="35" cy="40" r="20" fill="#f97316"/>
-            <circle cx="60" cy="60" r="25" fill="#fb7185"/>
-        </svg>
-        <h3>Abstract</h3>
-    </div>
-
-</section>
-
-<section class="gallery">
-
-    <div class="wallpaper">
-        <span>Nature Collection</span>
-    </div>
-
-    <div class="wallpaper">
-        <span>Ocean Collection</span>
-    </div>
-
-    <div class="wallpaper">
-        <span>Sunset Collection</span>
-    </div>
-
-    <div class="wallpaper">
-        <span>Neon Collection</span>
-    </div>
-
-</section>
-
-<footer>
-    © 2026 WallpaperVerse • All Rights Reserved
-</footer>
-
+    <script>
+        // Tailwind script already included via CDN
+        console.log('%cCard Navigation Demo loaded successfully ✨', 'color: #a5b4fc; font-family: monospace;');
+    </script>
 </body>
 </html>
-```
